@@ -1,5 +1,5 @@
 ---
-layout: post
+categories: [Bread]
 title: "Roggen Brot"
 date: 2025-12-08
 ---

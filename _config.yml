@@ -1,8 +1,33 @@
-title: Brot Blog
-description: Stories from my breads
-theme: minima
-baseurl: "/BrotBlog"
-url: "https://josefgull.github.io/BrotBlog"
+title: Josef's Blog
+description: Stories, notes and photos – from bread to everything else
+remote_theme: mmistakes/minimal-mistakes@4.26.2
+minimal_mistakes_skin: default # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+locale: en-US
+baseurl: "/Blog"
+url: "https://josefgull.github.io"
+
+include:
+  - _pages
+
+paginate: 5
+paginate_path: /page:num/
 
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-remote-theme
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      read_time: true
+      show_date: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
