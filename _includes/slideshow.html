@@ -1,0 +1,16 @@
+{%- comment -%}
+  Slideshow of all images in one folder below assets/images/.
+  Usage: {% include slideshow.html folder="2026-07-29-rumaenien/bran" title="Bran" %}
+{%- endcomment -%}
+{%- assign prefix = "/assets/images/" | append: include.folder | append: "/" -%}
+{%- assign images = site.static_files | where_exp: "f", "f.path contains prefix" | sort: "path" -%}
+<div class="slideshow">
+<div class="slideshow__track">
+{%- for image in images -%}
+<figure class="slideshow__slide"><img src="{{ image.path | relative_url }}" alt="{{ include.title }} {{ forloop.index }}" loading="lazy"></figure>
+{%- endfor -%}
+</div>
+<button type="button" class="slideshow__btn slideshow__btn--prev" aria-label="Previous">&#8249;</button>
+<button type="button" class="slideshow__btn slideshow__btn--next" aria-label="Next">&#8250;</button>
+<div class="slideshow__count">1 / {{ images.size }}</div>
+</div>
